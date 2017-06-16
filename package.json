@@ -1,0 +1,42 @@
+{
+  "name": "resamplerjs",
+  "version": "0.9.1",
+  "description": "A plugin for resampling audio buffers",
+  "main": "./src/resampler.js",
+  "browser": {
+    "./src/resampler.js": "./dist/resampler.min.js"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "npm run lint && npm run test && npm run build:dist",
+    "build:dist": "npm run build:lib && uglifyjs ./lib/resampler.js > ./dist/resampler.min.js",
+    "build:lib": "webpack",
+    "test": "echo \"⚠️  WARNING: No test specified\" && exit 0",
+    "lint": "eslint -c .eslintrc.json ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanlescure/resamplerjs.git"
+  },
+  "author": "Grant Galitz",
+  "contributors": [
+    "Jean M. Lescure <jean@ticowebmedia.com> (https://jeanlescure.io)"
+  ],
+  "license": "UNLICENSE",
+  "bugs": {
+    "url": "https://github.com/jeanlescure/resamplerjs/issues"
+  },
+  "homepage": "https://github.com/jeanlescure/resamplerjs#readme",
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-preset-env": "1.5.2",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-html": "2.0.3",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-jsdoc": "3.1.0",
+    "uglify-js": "3.0.15",
+    "webpack": "2.6.1"
+  }
+}
